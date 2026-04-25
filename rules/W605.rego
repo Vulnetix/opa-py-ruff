@@ -9,7 +9,7 @@ import rego.v1
 metadata := {
 	"id": "RUFF-W605",
 	"name": "invalid escape sequence",
-	"description": "Invalid escape sequence: `\<value>`",
+	"description": "Invalid escape sequence: `<value>`",
 	"help_uri": "https://docs.astral.sh/ruff/rules/invalid-escape-sequence/",
 	"languages": ["python"],
 	"severity": "low",

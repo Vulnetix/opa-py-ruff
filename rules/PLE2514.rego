@@ -9,7 +9,7 @@ import rego.v1
 metadata := {
 	"id": "RUFF-PLE2514",
 	"name": "invalid character nul",
-	"description": "Invalid unescaped character NUL, use '\0' instead",
+	"description": "Invalid unescaped character NUL, use '\u0000' instead",
 	"help_uri": "https://docs.astral.sh/ruff/rules/invalid-character-nul/",
 	"languages": ["python"],
 	"severity": "high",
