@@ -9,7 +9,7 @@ import rego.v1
 metadata := {
 	"id": "RUFF-PLE2513",
 	"name": "invalid character esc",
-	"description": "Invalid unescaped character ESC, use '\x1b' instead",
+	"description": "Invalid unescaped character ESC, use '\u001b' instead",
 	"help_uri": "https://docs.astral.sh/ruff/rules/invalid-character-esc/",
 	"languages": ["python"],
 	"severity": "high",

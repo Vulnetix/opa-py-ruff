@@ -9,7 +9,7 @@ import rego.v1
 metadata := {
 	"id": "RUFF-PLE2512",
 	"name": "invalid character sub",
-	"description": "Invalid unescaped character SUB, use '\x1a' instead",
+	"description": "Invalid unescaped character SUB, use '\u001a' instead",
 	"help_uri": "https://docs.astral.sh/ruff/rules/invalid-character-sub/",
 	"languages": ["python"],
 	"severity": "high",
