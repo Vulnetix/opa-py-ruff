@@ -1,0 +1,49 @@
+# SPDX-License-Identifier: Apache-2.0
+# Ruff rule PLE2515 (Pylint): invalid character zero width space
+# Clean-room Rego implementation for the Vulnetix CLI input model.
+
+package vulnetix.rules.ruff_ple2515
+
+import rego.v1
+
+metadata := {
+	"id": "RUFF-PLE2515",
+	"name": "invalid character zero width space",
+	"description": "Invalid unescaped character zero-width-space, use '\u200B' instead",
+	"help_uri": "https://docs.astral.sh/ruff/rules/invalid-character-zero-width-space/",
+	"languages": ["python"],
+	"severity": "high",
+	"level": "error",
+	"kind": "sast",
+	"cwe": [],
+	"capec": [],
+	"attack_technique": [],
+	"cvssv4": "",
+	"cwss": "",
+	"tags": ["python", "ruff", "pylint", "ple"],
+	"ruff_code": "PLE2515",
+	"ruff_linter": "Pylint",
+	"ruff_name": "invalid-character-zero-width-space",
+	"ruff_since": "v0.0.257",
+	"ruff_fix": "Sometimes",
+}
+
+_is_py(path) if endswith(path, ".py")
+_is_py(path) if endswith(path, ".pyw")
+
+findings contains finding if {
+	some path in object.keys(input.file_contents)
+	_is_py(path)
+	lines := split(input.file_contents[path], "\n")
+	some i, line in lines
+	regex.match(`\\$\s`, line)
+	finding := {
+		"rule_id": metadata.id,
+		"message": "Invalid line continuation before whitespace",
+		"artifact_uri": path,
+		"severity": metadata.severity,
+		"level": metadata.level,
+		"start_line": i + 1,
+		"snippet": line,
+	}
+}
