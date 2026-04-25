@@ -36,7 +36,7 @@ findings contains finding if {
 	_is_py(path)
 	lines := split(input.file_contents[path], "\n")
 	some i, line in lines
-	regex.match(`class\s+\w+.*ABC.*:\s*\n(?!.*@abstractmethod)`, line)
+	regex.match(`class\s+\w+.*ABC.*:\s*\n`, line)
 	finding := {
 		"rule_id": metadata.id,
 		"message": "Abstract base class without abstract method",

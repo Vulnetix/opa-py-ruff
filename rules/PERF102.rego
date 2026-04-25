@@ -36,7 +36,7 @@ findings contains finding if {
 	_is_py(path)
 	lines := split(input.file_contents[path], "\n")
 	some i, line in lines
-	regex.match(`for\s+\w+,\s*\w+\s+in\s+\w+\.items\(\):\s*\n(?!.*\2)`, line)
+	regex.match(`for\s+\w+,\s*\w+\s+in\s+\w+\.items\(\):\s*\n`, line)
 	finding := {
 		"rule_id": metadata.id,
 		"message": "When using only the values of a dict, use dict.values()",

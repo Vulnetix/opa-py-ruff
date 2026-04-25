@@ -36,7 +36,7 @@ findings contains finding if {
 	_is_py(path)
 	lines := split(input.file_contents[path], "\n")
 	some i, line in lines
-	regex.match(`datetime\.datetime\.now\s*\(\s*\)`, line)
+	regex.match(`\.now\s*\(\s*\)`, line)
 	finding := {
 		"rule_id": metadata.id,
 		"message": "datetime.now() called without tz argument",

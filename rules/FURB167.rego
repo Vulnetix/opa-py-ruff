@@ -36,7 +36,7 @@ findings contains finding if {
 	_is_py(path)
 	lines := split(input.file_contents[path], "\n")
 	some i, line in lines
-	regex.match(`re\.(IGNORECASE|MULTILINE|DOTALL|VERBOSE)\b(?!\.)`, line)
+	regex.match(`re\.(IGNORECASE|MULTILINE|DOTALL|VERBOSE)\b`, line)
 	finding := {
 		"rule_id": metadata.id,
 		"message": "Use flag literal instead of flag name",

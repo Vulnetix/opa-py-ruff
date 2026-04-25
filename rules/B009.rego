@@ -36,7 +36,7 @@ findings contains finding if {
 	_is_py(path)
 	lines := split(input.file_contents[path], "\n")
 	some i, line in lines
-	regex.match(`\bgetattr\s*\([^,]+,\s*["\'][^"\']+["\'](?!\s*,)`, line)
+	regex.match(`\bgetattr\s*\([^,]+,\s*["\'][^"\']+["\']`, line)
 	finding := {
 		"rule_id": metadata.id,
 		"message": "Do not call getattr with a constant attribute value",

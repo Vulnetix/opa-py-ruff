@@ -36,7 +36,7 @@ findings contains finding if {
 	_is_py(path)
 	lines := split(input.file_contents[path], "\n")
 	some i, line in lines
-	regex.match(`datetime\.datetime\s*\((?!.*tzinfo)`, line)
+	regex.match(`datetime\.datetime\s*\(`, line)
 	finding := {
 		"rule_id": metadata.id,
 		"message": "datetime() without tzinfo argument",

@@ -36,7 +36,8 @@ findings contains finding if {
 	_is_py(path)
 	lines := split(input.file_contents[path], "\n")
 	some i, line in lines
-	regex.match(`\bwarnings\.warn\s*\((?!.*stacklevel)`, line)
+	regex.match(`\bwarnings\.warn\s*\(`, line)
+	not regex.match(`.*stacklevel`, line)
 	finding := {
 		"rule_id": metadata.id,
 		"message": "warnings.warn() without stacklevel",

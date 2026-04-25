@@ -36,7 +36,8 @@ findings contains finding if {
 	_is_py(path)
 	lines := split(input.file_contents[path], "\n")
 	some i, line in lines
-	regex.match(`\byaml\.load\s*\((?!.*Loader)`, line)
+	regex.match(`\byaml\.load\s*\(`, line)
+	not regex.match(`.*Loader`, line)
 	finding := {
 		"rule_id": metadata.id,
 		"message": "Use of unsafe yaml.load - use yaml.safe_load instead",

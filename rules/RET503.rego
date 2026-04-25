@@ -36,7 +36,7 @@ findings contains finding if {
 	_is_py(path)
 	lines := split(input.file_contents[path], "\n")
 	some i, line in lines
-	regex.match(`def\s+\w+[^:]+:\s*\n(?!.*return)`, line)
+	regex.match(`def\s+\w+[^:]+:\s*\n`, line)
 	finding := {
 		"rule_id": metadata.id,
 		"message": "Missing explicit return",

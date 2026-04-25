@@ -36,7 +36,7 @@ findings contains finding if {
 	_is_py(path)
 	lines := split(input.file_contents[path], "\n")
 	some i, line in lines
-	regex.match(`class\s+\w+\s*\(\s*str\s*\).*:\s*\n(?!.*__slots__)`, line)
+	regex.match(`class\s+\w+\s*\(\s*str\s*\).*:\s*\n`, line)
 	finding := {
 		"rule_id": metadata.id,
 		"message": "Subclass of str without __slots__",

@@ -36,7 +36,7 @@ findings contains finding if {
 	_is_py(path)
 	lines := split(input.file_contents[path], "\n")
 	some i, line in lines
-	regex.match(`^(?!.*Copyright|.*copyright|.*LICENSE|.*SPDX)`, line)
+	regex.match(`^`, line)
 	finding := {
 		"rule_id": metadata.id,
 		"message": "Missing copyright notice",

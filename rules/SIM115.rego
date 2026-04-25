@@ -36,7 +36,7 @@ findings contains finding if {
 	_is_py(path)
 	lines := split(input.file_contents[path], "\n")
 	some i, line in lines
-	regex.match(`\bopen\s*\((?!.*with\b)`, line)
+	regex.match(`\bopen\s*\(`, line)
 	finding := {
 		"rule_id": metadata.id,
 		"message": "Use context handler for opening files",

@@ -36,7 +36,7 @@ findings contains finding if {
 	_is_py(path)
 	lines := split(input.file_contents[path], "\n")
 	some i, line in lines
-	regex.match(`open\s*\((?!.*encoding)`, line)
+	regex.match(`open\s*\(`, line)
 	finding := {
 		"rule_id": metadata.id,
 		"message": "open() without explicit encoding",

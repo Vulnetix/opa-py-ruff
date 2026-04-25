@@ -36,7 +36,7 @@ findings contains finding if {
 	_is_py(path)
 	lines := split(input.file_contents[path], "\n")
 	some i, line in lines
-	regex.match(`^\s+["\'](?!docstring)`, line)
+	regex.match(`^\s+["\']`, line)
 	finding := {
 		"rule_id": metadata.id,
 		"message": "Useless expression — statement has no effect",

@@ -36,7 +36,7 @@ findings contains finding if {
 	_is_py(path)
 	lines := split(input.file_contents[path], "\n")
 	some i, line in lines
-	regex.match(`def\s+_\w+\s*\([^)]*\)\s*(?!->)`, line)
+	regex.match(`def\s+_\w+\s*\([^)]*\)\s*`, line)
 	finding := {
 		"rule_id": metadata.id,
 		"message": "Missing return type annotation for private function",

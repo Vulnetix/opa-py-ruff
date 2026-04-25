@@ -36,7 +36,7 @@ findings contains finding if {
 	_is_py(path)
 	lines := split(input.file_contents[path], "\n")
 	some i, line in lines
-	regex.match(`class\s+\w+.*NamedTuple.*:\s*\n(?!.*__slots__)`, line)
+	regex.match(`class\s+\w+.*NamedTuple.*:\s*\n`, line)
 	finding := {
 		"rule_id": metadata.id,
 		"message": "NamedTuple subclass without __slots__",

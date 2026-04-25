@@ -36,7 +36,7 @@ findings contains finding if {
 	_is_py(path)
 	lines := split(input.file_contents[path], "\n")
 	some i, line in lines
-	regex.match(`^import\s+(numpy|pandas|tensorflow|matplotlib)\b(?!\s+as\s+(np|pd|tf|plt)\b)`, line)
+	regex.match(`^import\s+(numpy|pandas|tensorflow|matplotlib)\b\b)`, line)
 	finding := {
 		"rule_id": metadata.id,
 		"message": "Import alias convention not followed",
