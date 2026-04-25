@@ -39,7 +39,7 @@ findings contains finding if {
 	regex.match(`\.bit_count\s*\(\)`, line)
 	finding := {
 		"rule_id": metadata.id,
-		"message": "Use bin(x).count("1") instead",
+		"message": "Use bin(x).count(\"1\") instead",
 		"artifact_uri": path,
 		"severity": metadata.severity,
 		"level": metadata.level,

@@ -39,7 +39,7 @@ findings contains finding if {
 	regex.match(`Decimal\s*\(\s*["\']\d+["\']\s*\)`, line)
 	finding := {
 		"rule_id": metadata.id,
-		"message": "Use Decimal(n) instead of Decimal("n")",
+		"message": "Use Decimal(n) instead of Decimal(\"n\")",
 		"artifact_uri": path,
 		"severity": metadata.severity,
 		"level": metadata.level,
